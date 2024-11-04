@@ -15,7 +15,7 @@ const Navbar = () => {
           href="../templates/creative-agency/index.html"
           aria-label="Preline"
         >
-          <svg
+          {/* <svg
             className="w-28 h-auto"
             width={116}
             height={32}
@@ -47,7 +47,8 @@ const Navbar = () => {
               className="fill-black dark:fill-white"
               fill="currentColor"
             />
-          </svg>
+          </svg> */}
+          <h1>Mehdii<span className=''>Codes</span></h1>
         </a>
         {/* End Logo */}
       </div>

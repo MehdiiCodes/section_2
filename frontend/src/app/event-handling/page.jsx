@@ -12,6 +12,20 @@ const EventHandling = () => {
         onClick={() => { alert('button was clicked') }}
         >Click Event</button>
 
+        <input className='border block w-full p-3 mt-4' 
+        onChange={ ( e ) => { console.log(e.target.value);
+         }} type="text" />
+
+         <input className='border block w-full p-3 mt-4'
+         placeholder='Press any Key'
+          onKeyDown={ (e) => {console.log(e.code);
+          } } type="text" />
+
+          <input type="color"
+          onChange={(e) => {console.log( document.body.style.backgroundColor = e.target.value );
+          }}
+          />
+
         </div>
 
     </div>
