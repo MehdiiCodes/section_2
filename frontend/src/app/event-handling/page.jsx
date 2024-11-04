@@ -26,6 +26,11 @@ const EventHandling = () => {
           }}
           />
 
+          <input
+          onChange={() => {console.log(e.target.files);
+          }}
+          type="file" />
+
         </div>
 
     </div>
