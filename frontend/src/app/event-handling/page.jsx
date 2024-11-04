@@ -27,7 +27,7 @@ const EventHandling = () => {
           />
 
           <input
-          onChange={() => {console.log(e.target.files);
+          onChange={(e) => {console.log(e.target.files);
           }}
           type="file" />
 
