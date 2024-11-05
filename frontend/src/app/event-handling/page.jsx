@@ -2,6 +2,19 @@
 import React from 'react'
 
 const EventHandling = () => {
+
+    const previewImage = () => {
+     const file = e.target.files[0];
+     const reader = new FileReader();
+     reader.onload = (data) => {
+      const image = new Image();
+      image.src = data.target.result;
+      document.body.appendChild(image);
+     }
+
+     reader.readAsDataURL(file);
+    }
+
   return (
     <div>
         
@@ -19,7 +32,7 @@ const EventHandling = () => {
          <input className='border block w-full p-3 mt-4'
          placeholder='Press any Key'
           onKeyDown={ (e) => {console.log(e.code);
-          } } type="text" />
+          }} type="text" />
 
           <input type="color"
           onChange={(e) => {console.log( document.body.style.backgroundColor = e.target.value );
@@ -30,6 +43,8 @@ const EventHandling = () => {
           onChange={(e) => {console.log(e.target.files);
           }}
           type="file" />
+
+          <input type="file" onChange={previewImage} />
 
         </div>
 
