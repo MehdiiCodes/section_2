@@ -6,22 +6,25 @@ const TodoList = () => {
     // let count = 0;
     // const [count, setCount] = useState(0);
     const [taskList, setTaskList] = useState([
-        { text: 'doodh lao', completed: false },
-        { text: 'khana khao', completed: false },
-        { text: 'code likho', completed: false },
-        { text: 'code commit kro', completed: false },
+        // { text: 'doodh lao', completed: false },
+        // { text: 'khana khao', completed: false },
+        // { text: 'code likho', completed: false },
+        // { text: 'code commit kro', completed: false },
     ]);
 
     const addNewTask = (e) => {
         if (e.code === 'Enter') {
             console.log(e.target.value);
+
+            const newTask = { text: e.target.value, completed: false };
+            setTaskList( [ newTask, ...taskList ] )
             
             e.target.value = '';
         }
     }
 
   return (
-    <div className='bg-gray-300 h-screen pt-10'>
+    <div className='bg-gray-300 min-h-screen pt-10'>
         <h1 className='text-center font-bold text-4xl my-5'>ToDoList</h1>
         <div className='container mx-auto shadow rounded-lg bg-white'>
 
@@ -40,9 +43,13 @@ const TodoList = () => {
             <div className='p-5'>
 
                 {
-                    taskList.map((task) => {
-                        return <div className='border p-3 rounded mb-4 shadow-lg'>
+                    taskList.map((task, index) => {
+                        return <div key={index} className='border p-3 rounded mb-4 shadow-lg'>
                             <p className='text-xl'>{task.text}</p>
+                            <div className='flex gap-3 mt-4'>
+                                <button className='bg-red-500 rounded-full text-white px-3 py-1'>Delete</button>
+                                <button className='bg-blue-500 rounded-full text-white px-3 py-1'>Complete</button>
+                            </div>
                         </div>
                     })
                 }
