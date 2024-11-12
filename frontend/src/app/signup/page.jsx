@@ -1,4 +1,5 @@
 'use client';
+import { IconCheck, IconLoader3 } from '@tabler/icons-react';
 import { useFormik } from 'formik';
 import React from 'react'
 import * as Yup from 'yup';
@@ -31,8 +32,13 @@ const Signup = () => {
       password: '',
       confirmPassword: ''
     },
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: (values, { resetForm }) => {
+      
+      setTimeout(() => {
+        console.log(values);
+        resetForm();
+      }, 2000);
+
       // send values to backend
     },
     validationSchema: SignupSchema
@@ -278,9 +284,11 @@ const Signup = () => {
                 {/* End Checkbox */}
                 <button
                   type="submit"
-                  className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                  disabled={signupForm.isSubmitting}
+                  className="flex item-center gap-3 w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                 >
-                  Sign up
+                  { signupForm.isSubmitting ? <IconLoader3  className='animate-spin' /> : <IconCheck /> }
+                  { signupForm.isSubmitting ? 'Submittimg...' : 'Sign Up' }
                 </button>
               </div>
             </form>
