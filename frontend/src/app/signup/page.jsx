@@ -8,7 +8,17 @@ const SignupSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Nam nhi hai kya?'),
-  email: Yup.string().email('Email toh do').required('Required'),
+
+  email: Yup.string().email('Email toh likhoo').required('Email toh likhoo'),
+  password: Yup.string().required('Password toh dalo')
+  .matches(/[a-z]/, 'lowercase letter chahiye')
+  .matches(/[A-Z]/, 'uppercase letter chahiye')
+  .matches(/[0-9]/, 'number bhi dalo')
+  .matches(/[\W]/, 'ek speical character bhi likhoo')
+  .min(8, 'kam se kam 8 characters likho'),
+
+  confirmPassword: Yup.string().required('Password confirm karo')
+    .oneOf([Yup.ref('password'), null], 'Password match karao')
 });
 
 const Signup = () => {
