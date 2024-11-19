@@ -41,6 +41,11 @@ const Signup = () => {
       // }, 2000);
 
     axios.post('http://localhost:5000/user/add', values)
+    .then((result) => {
+      
+    }).catch((err) => {
+      
+    });
 
       // send values to backend
     },
