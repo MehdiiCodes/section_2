@@ -1,5 +1,6 @@
 'use client';
 import { IconCheck, IconLoader3 } from '@tabler/icons-react';
+import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react'
 import * as Yup from 'yup';
@@ -34,10 +35,12 @@ const Signup = () => {
     },
     onSubmit: (values, { resetForm }) => {
       
-      setTimeout(() => {
-        console.log(values);
-        resetForm();
-      }, 2000);
+      // setTimeout(() => {
+      //   console.log(values);
+      //   resetForm();
+      // }, 2000);
+
+    axios.post('http://localhost:5000/user/add', values)
 
       // send values to backend
     },
