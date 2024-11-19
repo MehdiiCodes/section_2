@@ -3,6 +3,7 @@ import { IconCheck, IconLoader3 } from '@tabler/icons-react';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react'
+import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({
@@ -42,9 +43,10 @@ const Signup = () => {
 
     axios.post('http://localhost:5000/user/add', values)
     .then((result) => {
-      
+      toast.success('User Registered Successfully');
     }).catch((err) => {
-      
+      console.log(err);
+      toast.error('Something went wrong');
     });
 
       // send values to backend
