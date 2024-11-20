@@ -37,7 +37,7 @@ const Signup = () => {
       password: '',
       confirmPassword: ''
     },
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: (values, { resetForm, setSubmitting }) => {
       
       // setTimeout(() => {
       //   console.log(values);
@@ -51,7 +51,8 @@ const Signup = () => {
       router.push('/login');
     }).catch((err) => {
       console.log(err);
-      toast.error('Something went wrong');
+      toast.error( err?.response?.data?.message || 'Semething went Wrong' );
+      setSubmitting(false);
     });
 
       // send values to backend
