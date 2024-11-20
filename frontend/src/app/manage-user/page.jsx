@@ -39,10 +39,16 @@ const ManageUser = () => {
                                     <th className='p-2'>Registered At</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className='bg-gray-100'>
                                 {
                                     userList.map( (user) => {
-                                        return <tr></tr>
+                                        return <tr key={user._id} className='border border-slate-800'>
+                                            <td>{user._id}</td>
+                                            <td>{user.name}</td>
+                                            <td>{user.email}</td>
+                                            <td>{user.city}</td>
+                                            <td>{user.createdAt}</td>
+                                        </tr>
                                     })
                                 }
                             </tbody>
