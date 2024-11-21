@@ -42,12 +42,18 @@ const ManageUser = () => {
                             <tbody className='bg-gray-100'>
                                 {
                                     userList.map( (user) => {
-                                        return <tr key={user._id} className='border border-slate-800'>
-                                            <td>{user._id}</td>
-                                            <td>{user.name}</td>
-                                            <td>{user.email}</td>
-                                            <td>{user.city}</td>
-                                            <td>{user.createdAt}</td>
+                                        return <tr key={user._id} className=''>
+                                            <td className='p-2 border border-gray-300'>{user._id}</td>
+                                            <td className='p-2 border border-gray-300'>{user.name}</td>
+                                            <td className='p-2 border border-gray-300'>{user.email}</td>
+                                            <td className='p-2 border border-gray-300'>{user.city}</td>
+                                            <td className='p-2 border border-gray-300'>{user.createdAt}</td>
+                                            <td className='p-2 border border-gray-300'>
+                                                <button className='bg-red-500 text-white px-2 py-1 rounded'>Delete</button>
+                                            </td>
+                                            <td className='p-2 border border-gray-300'>
+                                                <button className='bg-blue-500 text-white px-2 py-1 rounded'>Edit</button>
+                                            </td>
                                         </tr>
                                     })
                                 }
