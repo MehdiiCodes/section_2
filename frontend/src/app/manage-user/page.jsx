@@ -1,6 +1,7 @@
 'use client';
 import { IconPencil, IconTrash } from '@tabler/icons-react';
 import axios from 'axios'
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 
@@ -69,9 +70,9 @@ const ManageUser = () => {
                                                 </button>
                                             </td>
                                             <td className='p-2 border border-gray-300'>
-                                                <button className='bg-blue-500 text-white px-2 py-1 rounded-full' >
+                                                <Link href={'/updateuser/' + user._id} className='bg-blue-500 text-white block w-fit px-2 py-1 rounded-full' >
                                                     <IconPencil />
-                                                </button>
+                                                </Link>
                                             </td>
                                         </tr>
                                     })
