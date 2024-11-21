@@ -23,6 +23,9 @@ const ManageUser = () => {
     }, []);
 
     const deleteUser = async (id) => {
+
+        if(!confirm('Are you sure you want to delete this user?')) return;
+
         const res = await axios.delete(`http://localhost:5000/user/delete/${id}`);
         if (res.status === 200) {
             fetchUsers();
