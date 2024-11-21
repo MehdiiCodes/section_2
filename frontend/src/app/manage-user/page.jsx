@@ -21,6 +21,13 @@ const ManageUser = () => {
       fetchUsers();
     }, []);
 
+    const deleteUser = async (id) => {
+        const res = await axios.delete(`http://localhost:5000/user/delete/${id}`);
+        if (res.status === 200) {
+            fetchUsers();
+        }
+    }
+
 
   return (
     <div className='h-screen bg-gray-200 pt-10'> 
@@ -50,12 +57,12 @@ const ManageUser = () => {
                                             <td className='p-2 border border-gray-300'>{user.city}</td>
                                             <td className='p-2 border border-gray-300'>{user.createdAt}</td>
                                             <td className='p-2 border border-gray-300'>
-                                                <button className='bg-red-500 text-white px-2 py-1 rounded-full'>
+                                                <button onClick={() => { deleteUser(user._id) }} className='bg-red-500 text-white px-2 py-1 rounded-full'>
                                                     <IconTrash />
                                                 </button>
                                             </td>
                                             <td className='p-2 border border-gray-300'>
-                                                <button className='bg-blue-500 text-white px-2 py-1 rounded-full'>
+                                                <button className='bg-blue-500 text-white px-2 py-1 rounded-full' >
                                                     <IconPencil />
                                                 </button>
                                             </td>
