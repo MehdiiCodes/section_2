@@ -2,6 +2,7 @@
 import { IconPencil, IconTrash } from '@tabler/icons-react';
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import toast from 'react-hot-toast';
 
 const ManageUser = () => {
 
@@ -25,6 +26,9 @@ const ManageUser = () => {
         const res = await axios.delete(`http://localhost:5000/user/delete/${id}`);
         if (res.status === 200) {
             fetchUsers();
+            toast.success('User Deleted Successfully');
+        }else {
+            toast.error('Failed to delete User');
         }
     }
 
