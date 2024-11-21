@@ -53,6 +53,7 @@ const ManageUser = () => {
                                     <th className='p-2'>Email</th>
                                     <th className='p-2'>City</th>
                                     <th className='p-2'>Registered At</th>
+                                    <th className='p-2' colSpan={2}></th>
                                 </tr>
                             </thead>
                             <tbody className='bg-gray-100'>
