@@ -1,4 +1,5 @@
 'use client';
+import { IconPencil, IconTrash } from '@tabler/icons-react';
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
@@ -49,10 +50,14 @@ const ManageUser = () => {
                                             <td className='p-2 border border-gray-300'>{user.city}</td>
                                             <td className='p-2 border border-gray-300'>{user.createdAt}</td>
                                             <td className='p-2 border border-gray-300'>
-                                                <button className='bg-red-500 text-white px-2 py-1 rounded'>Delete</button>
+                                                <button className='bg-red-500 text-white px-2 py-1 rounded-full'>
+                                                    <IconTrash />
+                                                </button>
                                             </td>
                                             <td className='p-2 border border-gray-300'>
-                                                <button className='bg-blue-500 text-white px-2 py-1 rounded'>Edit</button>
+                                                <button className='bg-blue-500 text-white px-2 py-1 rounded-full'>
+                                                    <IconPencil />
+                                                </button>
                                             </td>
                                         </tr>
                                     })
