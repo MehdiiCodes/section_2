@@ -42,7 +42,7 @@ const Signup = () => {
       // setTimeout(() => {
       //   console.log(values);
       //   resetForm();
-      // }, 2000);
+      // }, 2000);/
 
     axios.post('http://localhost:5000/user/add', values)
     .then((result) => {
