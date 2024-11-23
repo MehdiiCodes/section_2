@@ -2,12 +2,13 @@
 import { IconCheck, IconLoader3 } from '@tabler/icons-react';
 import axios from 'axios';
 import { Formik } from 'formik';
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 const UpdateUser = () => {
 
   const { id } = useParams();
+  const router = useRouter();
   // console.log(id);
 
 
@@ -26,6 +27,13 @@ const UpdateUser = () => {
 
   const submitForm = async (values) => {
     console.log(values);
+
+    const res = await axios.put(`http://localhost:5000/user/update/${id}`, values);
+    if (res.status === 200) {
+    toast.success('User Update Successfully');
+    router.push('/manage-user');
+      }  
+
   }
 
   return (
